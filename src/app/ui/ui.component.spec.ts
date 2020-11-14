@@ -347,3 +347,63 @@ describe('Ui Exp - Component', () => {
     expect(el.innerText).toContain('4');
   });
 });
+
+describe('Ui Sqr - Component', () => {
+  let component: UiComponent;
+  let fixture: ComponentFixture<UiComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [UiComponent],
+      imports: [FormsModule],
+    })
+      .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(UiComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('Should call sqr method', () => {
+    // Arrange
+    let result1 = 0;
+    component.operator1 = 2;
+
+    // Act
+    component.sqr();
+    result1 = component.result;
+
+    // Assert
+    expect(result1).toBe(4);
+  });
+
+  it('should add operator1 when i click the sqr button ', () => {
+    // Arrange 
+    component.operator1 = 4;
+    let sqrButton = fixture.debugElement.query(By.css('.sqr-button'));
+
+    // Act
+    sqrButton.triggerEventHandler('click', null);
+
+    // Assert
+    expect(component.result).toBe(16);
+
+  });
+
+  it('Should render exp in TxtResult', () => {
+    // Arrange
+    component.operator1 = 5;
+
+    // Act
+    component.sqr();
+    fixture.detectChanges();
+
+    let de = fixture.debugElement.query(By.css('.result'));
+    let el: HTMLElement = de.nativeElement;
+
+    // Assert
+    expect(el.innerText).toContain('25');
+  });
+});

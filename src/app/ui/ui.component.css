@@ -54,3 +54,9 @@
     cursor: pointer;
     color: orange;
 }
+
+.sqr-button {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: darkmagenta;
+}
