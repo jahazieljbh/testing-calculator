@@ -1,28 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { UiComponent } from './ui.component';
-
-describe('Ui - Component', () => {
-  let component: UiComponent;
-  let fixture: ComponentFixture<UiComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ UiComponent ]
-    })
-    .compileComponents();
-  });
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(UiComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+import { FormsModule } from '@angular/forms';
+import { By } from '@angular/platform-browser';
 
 describe('Ui Addition - Component', () => {
   let component: UiComponent;
@@ -30,9 +9,10 @@ describe('Ui Addition - Component', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UiComponent ]
+      declarations: [UiComponent],
+      imports: [FormsModule],
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -42,173 +22,46 @@ describe('Ui Addition - Component', () => {
   });
 
   it('Should call addition method', () => {
-    expect(component).toBeFalsy();
+    // Arrange
+    let result = 0;
+    component.operator1 = 2;
+    component.operator2 = 2;
+
+    // Act
+    component.addition();
+    result = component.result;
+
+    // Assert
+    expect(result).toBe(4);
+  });
+
+  it('should add operator1 and operator2 when i click the addition button ', () => {
+    // Arrange 
+    component.operator1 = 5.0;
+    component.operator2 = 2.5;
+    let additionButton = fixture.debugElement.query(By.css('.addition-button'));
+
+    // Act
+    additionButton.triggerEventHandler('click', null);
+
+    // Assert
+    expect(component.result).toBe(7.5);
+
   });
 
   it('Should render sum in TxtResult', () => {
-    expect(component).toBeFalsy();
-  });
-});
+    // Arrange
+    component.operator1 = 5;
+    component.operator2 = 5;
 
-
-describe('Ui Substraction - Component', () => {
-  let component: UiComponent;
-  let fixture: ComponentFixture<UiComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ UiComponent ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(UiComponent);
-    component = fixture.componentInstance;
+    // Act
+    component.addition();
     fixture.detectChanges();
-  });
 
-  it('Should call substraction method', () => {
-    expect(component).toBeFalsy();
-  });
+    let de = fixture.debugElement.query(By.css('.result'));
+    let el: HTMLElement = de.nativeElement;
 
-  it('Should render subs in TxtResult', () => {
-    expect(component).toBeFalsy();
+    // Assert
+    expect(el.innerText).toContain('10');
   });
 });
-
-
-describe('Ui Multiplication - Component', () => {
-  let component: UiComponent;
-  let fixture: ComponentFixture<UiComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ UiComponent ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(UiComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('Should call multiplication method', () => {
-    expect(component).toBeFalsy();
-  });
-
-  it('Should render mul in TxtResult', () => {
-    expect(component).toBeFalsy();
-  });
-});
-
-
-describe('Ui Division - Component', () => {
-  let component: UiComponent;
-  let fixture: ComponentFixture<UiComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ UiComponent ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(UiComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('Should call division method', () => {
-    expect(component).toBeFalsy();
-  });
-
-  it('Should render div in TxtResult', () => {
-    expect(component).toBeFalsy();
-  });
-});
-
-
-describe('Ui Exp - Component', () => {
-  let component: UiComponent;
-  let fixture: ComponentFixture<UiComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ UiComponent ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(UiComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('Should call exp method', () => {
-    expect(component).toBeFalsy();
-  });
-
-  it('Should render exp in TxtResult', () => {
-    expect(component).toBeFalsy();
-  });
-});
-
-
-describe('Ui Sqr - Component', () => {
-  let component: UiComponent;
-  let fixture: ComponentFixture<UiComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ UiComponent ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(UiComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('Should call sqr method', () => {
-    expect(component).toBeFalsy();
-  });
-
-  it('Should render sqr in TxtResult', () => {
-    expect(component).toBeFalsy();
-  });
-});
-
-
-describe('Ui Sqrt - Component', () => {
-  let component: UiComponent;
-  let fixture: ComponentFixture<UiComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ UiComponent ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(UiComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('Should call sqrt method', () => {
-    expect(component).toBeFalsy();
-  });
-
-  it('Should render sqrt in TxtResult', () => {
-    expect(component).toBeFalsy();
-  });
-});
-
