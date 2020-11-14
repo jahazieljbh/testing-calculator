@@ -95,3 +95,66 @@ describe('Ui Addition - Component', () => {
     expect(el.innerText).toContain('10');
   });
 });
+
+describe('Ui Substraction - Component', () => {
+  let component: UiComponent;
+  let fixture: ComponentFixture<UiComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [UiComponent],
+      imports: [FormsModule],
+    })
+      .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(UiComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('Should call Substraction method', () => {
+    // Arrange
+    let result = 0;
+    component.operator1 = 8;
+    component.operator2 = 2;
+
+    // Act
+    component.substraction();
+    result = component.result;
+
+    // Assert
+    expect(result).toBe(6);
+  });
+
+  it('should add operator1 and operator2 when i click the substraction button ', () => {
+    // Arrange 
+    component.operator1 = 5.0;
+    component.operator2 = 2.5;
+    let additionButton = fixture.debugElement.query(By.css('.substraction-button'));
+
+    // Act
+    additionButton.triggerEventHandler('click', null);
+
+    // Assert
+    expect(component.result).toBe(2.5);
+
+  });
+
+  it('Should render subs in TxtResult', () => {
+    // Arrange
+    component.operator1 = 14;
+    component.operator2 = 5;
+
+    // Act
+    component.addition();
+    fixture.detectChanges();
+
+    let de = fixture.debugElement.query(By.css('.result'));
+    let el: HTMLElement = de.nativeElement;
+
+    // Assert
+    expect(el.innerText).toContain('9');
+  });
+});

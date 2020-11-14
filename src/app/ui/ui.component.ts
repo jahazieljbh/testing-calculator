@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { addition } from "../addition/addition"
+import { substraction } from "../substraction/substraction"
 
 @Component({
   selector: 'app-ui',
@@ -23,4 +24,9 @@ export class UiComponent implements OnInit {
     this.result = myresult;
   }
 
+  substraction() {
+    let myresult = 0;
+    myresult = substraction(this.operator1, this.operator2);
+    this.result = myresult;
+  }
 }
