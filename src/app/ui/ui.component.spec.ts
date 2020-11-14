@@ -284,3 +284,186 @@ describe('Ui Division - Component', () => {
     expect(el.innerText).toContain('1');
   });
 });
+
+describe('Ui Exp - Component', () => {
+  let component: UiComponent;
+  let fixture: ComponentFixture<UiComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [UiComponent],
+      imports: [FormsModule],
+    })
+      .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(UiComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('Should call exp method', () => {
+    // Arrange
+    let result = 0;
+    component.operator1 = 3;
+    component.operator2 = 5;
+
+    // Act
+    component.exp();
+    result = component.result;
+
+    // Assert
+    expect(result).toBe(243);
+  });
+
+  it('should add operator1 and operator2 when i click the exp button ', () => {
+    // Arrange 
+    component.operator1 = 2;
+    component.operator2 = 6;
+    let expButton = fixture.debugElement.query(By.css('.exp-button'));
+
+    // Act
+    expButton.triggerEventHandler('click', null);
+
+    // Assert
+    expect(component.result).toBe(64);
+
+  });
+
+  it('Should render exp in TxtResult', () => {
+    // Arrange
+    component.operator1 = 2;
+    component.operator2 = 2;
+
+    // Act
+    component.exp();
+    fixture.detectChanges();
+
+    let de = fixture.debugElement.query(By.css('.result'));
+    let el: HTMLElement = de.nativeElement;
+
+    // Assert
+    expect(el.innerText).toContain('4');
+  });
+});
+
+describe('Ui Sqr - Component', () => {
+  let component: UiComponent;
+  let fixture: ComponentFixture<UiComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [UiComponent],
+      imports: [FormsModule],
+    })
+      .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(UiComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('Should call sqr method', () => {
+    // Arrange
+    let result1 = 0;
+    component.operator1 = 2;
+
+    // Act
+    component.sqr();
+    result1 = component.result;
+
+    // Assert
+    expect(result1).toBe(4);
+  });
+
+  it('should add operator1 when i click the sqr button ', () => {
+    // Arrange 
+    component.operator1 = 4;
+    let sqrButton = fixture.debugElement.query(By.css('.sqr-button'));
+
+    // Act
+    sqrButton.triggerEventHandler('click', null);
+
+    // Assert
+    expect(component.result).toBe(16);
+
+  });
+
+  it('Should render sqr in TxtResult', () => {
+    // Arrange
+    component.operator1 = 5;
+
+    // Act
+    component.sqr();
+    fixture.detectChanges();
+
+    let de = fixture.debugElement.query(By.css('.result'));
+    let el: HTMLElement = de.nativeElement;
+
+    // Assert
+    expect(el.innerText).toContain('25');
+  });
+});
+
+describe('Ui Sqrt - Component', () => {
+  let component: UiComponent;
+  let fixture: ComponentFixture<UiComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [UiComponent],
+      imports: [FormsModule],
+    })
+      .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(UiComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('Should call sqrt method', () => {
+    // Arrange
+    let result1 = 0;
+    component.operator1 = 100;
+
+    // Act
+    component.sqrt();
+    result1 = component.result;
+
+    // Assert
+    expect(result1).toBe(10);
+  });
+
+  it('should add operator1 when i click the sqrt button ', () => {
+    // Arrange 
+    component.operator1 = 4;
+    let sqrtButton = fixture.debugElement.query(By.css('.sqrt-button'));
+
+    // Act
+    sqrtButton.triggerEventHandler('click', null);
+
+    // Assert
+    expect(component.result).toBe(2);
+
+  });
+
+  it('Should render sqrt in TxtResult', () => {
+    // Arrange
+    component.operator1 = 58;
+
+    // Act
+    component.sqrt();
+    fixture.detectChanges();
+
+    let de = fixture.debugElement.query(By.css('.result'));
+    let el: HTMLElement = de.nativeElement;
+
+    // Assert
+    expect(el.innerText).toContain('7.6');
+  });
+});
