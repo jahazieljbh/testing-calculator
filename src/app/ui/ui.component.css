@@ -42,3 +42,9 @@
     cursor: pointer;
     color: yellow;
 }
+
+.division-button {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: red;
+}

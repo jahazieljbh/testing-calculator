@@ -132,10 +132,10 @@ describe('Ui Substraction - Component', () => {
     // Arrange 
     component.operator1 = 5.0;
     component.operator2 = 2.5;
-    let additionButton = fixture.debugElement.query(By.css('.substraction-button'));
+    let substractionButton = fixture.debugElement.query(By.css('.substraction-button'));
 
     // Act
-    additionButton.triggerEventHandler('click', null);
+    substractionButton.triggerEventHandler('click', null);
 
     // Assert
     expect(component.result).toBe(2.5);
@@ -195,17 +195,17 @@ describe('Ui Multiplication - Component', () => {
     // Arrange 
     component.operator1 = 3;
     component.operator2 = 6.3;
-    let additionButton = fixture.debugElement.query(By.css('.multiplication-button'));
+    let multiplicationButton = fixture.debugElement.query(By.css('.multiplication-button'));
 
     // Act
-    additionButton.triggerEventHandler('click', null);
+    multiplicationButton.triggerEventHandler('click', null);
 
     // Assert
     expect(component.result).toBe(18.9);
 
   });
 
-  it('Should render subs in TxtResult', () => {
+  it('Should render mul in TxtResult', () => {
     // Arrange
     component.operator1 = 9;
     component.operator2 = 9;
@@ -219,5 +219,68 @@ describe('Ui Multiplication - Component', () => {
 
     // Assert
     expect(el.innerText).toContain('81');
+  });
+});
+
+describe('Ui Division - Component', () => {
+  let component: UiComponent;
+  let fixture: ComponentFixture<UiComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [UiComponent],
+      imports: [FormsModule],
+    })
+      .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(UiComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('Should call division method', () => {
+    // Arrange
+    let result = 0;
+    component.operator1 = 14;
+    component.operator2 = 8;
+
+    // Act
+    component.division();
+    result = component.result;
+
+    // Assert
+    expect(result).toBe(1.75);
+  });
+
+  it('should add operator1 and operator2 when i click the division button ', () => {
+    // Arrange 
+    component.operator1 = 20;
+    component.operator2 = 5;
+    let divisionButton = fixture.debugElement.query(By.css('.division-button'));
+
+    // Act
+    divisionButton.triggerEventHandler('click', null);
+
+    // Assert
+    expect(component.result).toBe(4);
+
+  });
+
+  it('Should render div in TxtResult', () => {
+    // Arrange
+    component.operator1 = 2;
+    component.operator2 = 2;
+
+    // Act
+    component.division();
+    fixture.detectChanges();
+
+    let de = fixture.debugElement.query(By.css('.result'));
+    let el: HTMLElement = de.nativeElement;
+
+    // Assert
+    expect(el.innerText).toContain('1');
   });
 });
