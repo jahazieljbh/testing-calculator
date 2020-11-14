@@ -30,3 +30,21 @@
     cursor: pointer;
     color: blue;
 }
+
+.substraction-button {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: green;
+}
+
+.multiplication-button {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: yellow;
+}
+
+.division-button {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: red;
+}
