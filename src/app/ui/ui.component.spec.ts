@@ -158,3 +158,66 @@ describe('Ui Substraction - Component', () => {
     expect(el.innerText).toContain('9');
   });
 });
+
+describe('Ui Multiplication - Component', () => {
+  let component: UiComponent;
+  let fixture: ComponentFixture<UiComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [UiComponent],
+      imports: [FormsModule],
+    })
+      .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(UiComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('Should call Multiplication method', () => {
+    // Arrange
+    let result = 0;
+    component.operator1 = 5;
+    component.operator2 = 8;
+
+    // Act
+    component.multiplication();
+    result = component.result;
+
+    // Assert
+    expect(result).toBe(40);
+  });
+
+  it('should add operator1 and operator2 when i click the multiplication button ', () => {
+    // Arrange 
+    component.operator1 = 3;
+    component.operator2 = 6.3;
+    let additionButton = fixture.debugElement.query(By.css('.multiplication-button'));
+
+    // Act
+    additionButton.triggerEventHandler('click', null);
+
+    // Assert
+    expect(component.result).toBe(18.9);
+
+  });
+
+  it('Should render subs in TxtResult', () => {
+    // Arrange
+    component.operator1 = 9;
+    component.operator2 = 9;
+
+    // Act
+    component.multiplication();
+    fixture.detectChanges();
+
+    let de = fixture.debugElement.query(By.css('.result'));
+    let el: HTMLElement = de.nativeElement;
+
+    // Assert
+    expect(el.innerText).toContain('81');
+  });
+});
