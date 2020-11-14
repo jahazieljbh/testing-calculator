@@ -392,7 +392,7 @@ describe('Ui Sqr - Component', () => {
 
   });
 
-  it('Should render exp in TxtResult', () => {
+  it('Should render sqr in TxtResult', () => {
     // Arrange
     component.operator1 = 5;
 
@@ -405,5 +405,65 @@ describe('Ui Sqr - Component', () => {
 
     // Assert
     expect(el.innerText).toContain('25');
+  });
+});
+
+describe('Ui Sqrt - Component', () => {
+  let component: UiComponent;
+  let fixture: ComponentFixture<UiComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [UiComponent],
+      imports: [FormsModule],
+    })
+      .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(UiComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('Should call sqrt method', () => {
+    // Arrange
+    let result1 = 0;
+    component.operator1 = 100;
+
+    // Act
+    component.sqrt();
+    result1 = component.result;
+
+    // Assert
+    expect(result1).toBe(10);
+  });
+
+  it('should add operator1 when i click the sqrt button ', () => {
+    // Arrange 
+    component.operator1 = 4;
+    let sqrtButton = fixture.debugElement.query(By.css('.sqrt-button'));
+
+    // Act
+    sqrtButton.triggerEventHandler('click', null);
+
+    // Assert
+    expect(component.result).toBe(2);
+
+  });
+
+  it('Should render sqrt in TxtResult', () => {
+    // Arrange
+    component.operator1 = 58;
+
+    // Act
+    component.sqrt();
+    fixture.detectChanges();
+
+    let de = fixture.debugElement.query(By.css('.result'));
+    let el: HTMLElement = de.nativeElement;
+
+    // Assert
+    expect(el.innerText).toContain('7.6');
   });
 });

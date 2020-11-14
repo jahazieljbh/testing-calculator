@@ -60,3 +60,9 @@
     cursor: pointer;
     color: darkmagenta;
 }
+
+.sqrt-button {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: navy;
+}
