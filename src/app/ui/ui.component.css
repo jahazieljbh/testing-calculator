@@ -2,6 +2,7 @@
     width: 150px;
     text-align: center;
     color: #999;
+    zoom: 1.8;
 }
 
 .result {
@@ -47,4 +48,22 @@
     font-size: 1.5em;
     cursor: pointer;
     color: red;
+}
+
+.exp-button {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: orange;
+}
+
+.sqr-button {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: darkmagenta;
+}
+
+.sqrt-button {
+    font-size: 1.5em;
+    cursor: pointer;
+    color: navy;
 }
