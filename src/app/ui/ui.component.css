@@ -2,11 +2,10 @@
     text-align: center;
     color: #999;
     display: inline;
-    zoom: 1.2;
 }
 
 .result {
-    font-size: 1.2em;
+    font-size: 2.5em;
     font-weight: bold;
     display: flex;
     border-style: solid;
@@ -20,74 +19,79 @@
 }
 
 .operator1 {
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: bold;
     color: black;
     text-align: center;
     padding: 0px;
-    width: 2.3em;
-    height: 1.2em;
-    font-size: 25px;
+    width: 5.9em;
+    height: 1.5em;
+    font-size: 2em;
     background: #ff9500;
 }
 
 .operator2 {
-    font-size: 1.5em;
+    font-size: 2em;
     font-weight: bold;
     color: black;
     text-align: center;
     padding: 0px;
-    width: 2.3em;
-    height: 1.2em;
-    font-size: 25px;
+    width: 5.9em;
+    height: 1.5em;
+    font-size: 2em;
     background: #ff9500;
 }
 
 .addition-button {
     cursor: pointer;
     color: black;
+    font-size: 2em;
     background: orange;
     border-style: solid;
     border-width: 1px;
-    width: 24px;
-    height: 24px;
-    padding-top: 4px;
+    width: 50px;
+    height: 50px;
+    padding-top: 10px;
 }
 
 .substraction-button {
     cursor: pointer;
     color: black;
+    font-size: 2em;
     background: orange;
     border-style: solid;
     border-width: 1px;
-    width: 24px;
-    height: 24px;
-    padding-top: 4px;
+    width: 50px;
+    height: 50px;
+    padding-top: 10px;
 }
 
 .multiplication-button {
     cursor: pointer;
     color: black;
+    font-size: 2em;
     background: orange;
     border-style: solid;
     border-width: 1px;
-    width: 24px;
-    height: 24px;
-    padding-top: 4px;
+    width: 50px;
+    height: 50px;
+    padding-top: 10px;
 }
 
 .division-button {
     cursor: pointer;
     color: black;
+    font-size: 2em;
     background: orange;
     border-style: solid;
     border-width: 1px;
-    width: 24px;
-    height: 24px;
-    padding-top: 4px;
+    width: 50px;
+    height: 50px;
+    padding-top: 10px;
 }
 
 .exp-button {
+    font-size: 2em;
     cursor: pointer;
     color: black;
     background: orange;
@@ -96,12 +100,13 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    letter-spacing: 7px;
-    width: 24px;
-    height: 24px;
+    letter-spacing: 15px;
+    width: 50px;
+    height: 50px;
 }
 
 .sqr-button {
+    font-size: 2em;
     cursor: pointer;
     color: black;
     background: orange;
@@ -110,12 +115,13 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    letter-spacing: 3px;
-    width: 24px;
-    height: 24px;
+    letter-spacing: 10px;
+    width: 50px;
+    height: 50px;
 }
 
 .sqrt-button {
+    font-size: 2em;
     cursor: pointer;
     color: black;
     background: orange;
@@ -124,7 +130,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    letter-spacing: 3px;
-    width: 24px;
-    height: 24px;
+    letter-spacing: 10px;
+    width: 50px;
+    height: 50px;
 }
